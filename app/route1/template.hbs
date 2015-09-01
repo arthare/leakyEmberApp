@@ -1,13 +1,13 @@
-{{#link-to 'route2'}}Next{{/link-to}} &lt;-- Click that guy
+{{#link-to 'route2'}}Next{{/link-to}} &lt;-- Click that guy to start leaking
 
-<h3>So what's the deal with this?</h3>
-This is an extremely simple app:
-<pre>
---Route 1
-----a link-to to route 2
-----this text
---Route 2
-----a link-to back to route 1
-</pre>
-
-And yet if you travel back and forth between route1 and route2, it leaks nodes like a sieve.  This happens whether you click the link-tos or use forward/back.  Best thing to watch is the node count in chrome devtools->timeline.  Even when chrome cleans up, each trip to route2 and back results in more and more allocated nodes.
+<hr>
+<p>Below in grey is an instance of &#123;&#123;leaky-component&#125;&#125; that contains an element with <i>fake-attrib="leaky-&#123;&#123;product.id&#125;&#125;"</i>.  It seems to get leaked on every route transition</p>
+<div style="background-color:#dddddd;">
+  {{leaky-component}}
+</div>
+<h4>Activities</h4>
+<ul>
+<li>Use the memory-timeline dev tool to watch the node count go up as you go between route1 and route2</li>
+<li>If you uncomment the #each in &#123;&#123;leaky-component&#125;&#125;'s template, the leaks become much, much bigger.</li>
+<li>If you change that fake-attrib value to <i>fake-attrib="leaky-5"</i>, then the leaks on route transitions go away</li>
+</ul>
