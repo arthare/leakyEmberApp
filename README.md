@@ -1,7 +1,6 @@
 # Leaky-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This app seems to leak DOM nodes on every route transition, despite only being about 20 extra lines over the barebones ember-cli app.
 
 ## Prerequisites
 
@@ -23,31 +22,6 @@ You will need the following things properly installed on your computer.
 ## Running / Development
 
 * `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+* Visit your app at [http://localhost:4200/route1](http://localhost:4200/route1).
+* Open up chrome dev tools, go to the timeline view, and start recording
+* Follow instructions at route1 to repro the bug (cycle between route1 and route2)
